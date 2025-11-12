@@ -90,7 +90,8 @@ for i, query_path in enumerate(image_files):
         image = preprocess(Image.open(query_path).convert("RGB")).unsqueeze(0).to(device)
         with torch.no_grad():
             q_emb = model.encode_image(image)
-            query_embedding = (q_emb / q_emb.norm(dim=-1, keepdim=True)).cpu().numpy()
+            query_embedding = (q_emb / q_emb.norm(dim=-1, keepdim=True)).cpu().numpy().astype('float32')
+
 
     distances, indices = index.search(query_embedding, actual_top_k)
 
