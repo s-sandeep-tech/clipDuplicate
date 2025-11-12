@@ -17,7 +17,3 @@ with torch.no_grad():
     similarity = (image_features @ text_features.T).softmax(dim=-1)
 
 print("Similarity scores:", similarity)
-
-
-  git config --global user.email "sandeeps@kaluanjewellers.tech"
-  git config --global user.name "s-sandeep-tech"
